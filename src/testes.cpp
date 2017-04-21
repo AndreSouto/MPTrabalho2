@@ -40,7 +40,7 @@ TEST_CASE("Testes da funcao converteRomDec():"){	//TEST_CASE que averigua o func
 	valor_decimal = converteRomDec(romano);
 	REQUIRE(valor_decimal == 21);				//Verifica se o valor convertido corresponde ao valor 21
 
-	strcpy(romano," CCCLXXX");
+	strcpy(romano,"CCCLXXX");
 	valor_decimal = converteRomDec(romano);
 	REQUIRE(valor_decimal == 380);				//Verifica se o valor convertido corresponde ao valor 380
 

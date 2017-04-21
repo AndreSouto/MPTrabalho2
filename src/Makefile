@@ -1,9 +1,11 @@
 IDIR =../include 
-CC=gcc
+CC=g++
 CFLAGS=-I$(IDIR)
 
 ODIR=obj
 LDIR =../lib
+
+LIBS=-lm
 
 _DEPS = romdec.hpp catch.hpp
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
@@ -16,9 +18,9 @@ $(ODIR)/%.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 testes: $(OBJ)
-	g++ -o $@ $^ $(CFLAGS)
+	g++ -o $@ $^ $(CFLAGS) $(LIBS)
 
-.PHONY: clean
+.PHONY: all testes clean
 
 clean:
 	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ 
