@@ -5,7 +5,7 @@ CFLAGS=-I$(IDIR)
 ODIR=obj
 LDIR =../lib
 
-_DEPS = romdec.h
+_DEPS = romdec.hpp
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 _OBJ = testes.o romdec.o 

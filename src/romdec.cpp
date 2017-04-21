@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *receiveString(){ //Função que recebe string do usuário
-	
+char *recebeString(){ //Função que recebe string do usuário e valida o tamanho da mesma
 
+	
 }
