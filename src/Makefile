@@ -1,14 +1,14 @@
-IDIR =../include
+IDIR =../include 
 CC=gcc
 CFLAGS=-I$(IDIR)
 
 ODIR=obj
 LDIR =../lib
 
-_DEPS = romdec.hpp
+_DEPS = romdec.hpp catch.hpp
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = testes.o romdec.o 
+_OBJ = testes.o romdec.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
