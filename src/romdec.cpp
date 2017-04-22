@@ -35,8 +35,263 @@ char *recebeString(){ //Função que recebe string do usuário e valida o tamanh
 	return string_retornada;
 }
 
-int validaRom(char *romano){
 
+int validaRom(char *romano){	//Função que valida o valor romano, se valer retorna 1 se não, retorna -1
+
+	int contadorV = 0, contadorD = 0, contadorL = 0;			//Contadores para V,D e L
+	int i = 0;										
+
+printf("parte 1");
+	/** Primeira filtragem: Valores D,L e V não podem aparecer mais de uma vez **/
+	while(*(romano+i) != '\0'){				
+
+		if(*(romano + i) == 'V'){		
+
+			contadorV++;
+		}
+
+		if(*(romano + i) == 'L'){		
+
+			contadorD++;
+		}
+
+		if(*(romano + i) == 'D'){		
+
+			contadorL++;
+		}
+
+		i++;
+	}
+
+	if(contadorL > 1 || contadorD > 1 || contadorV > 1){
+
+		return -1;
+	}
+
+
+printf("parte 2");
+	/** Segunda filtragem: Os valores I,C,X e M não podem aparecer mais do que três vezes seguidas **/
+	i = 0;
+	int j = 0;
+	int contadorI = 0, contadorC = 0, contadorX = 0, contadorM = 0;
+
+	while(*(romano+i) != '\0'){				
+
+		if(*(romano + i) == 'I'){		
+
+			contadorI = 1;
+			j = i + 1;
+
+			while(*(romano + j) != '\0'){
+
+				if(*(romano + j) == 'I'){
+
+					contadorI++;
+					j++;
+				}
+				else{
+
+					break;
+				}
+			}
+
+			if(contadorI > 3){
+
+				return -1;
+			}
+		}
+
+		if(*(romano + i) == 'C'){		
+
+			contadorC = 1;
+			j = i + 1;
+
+			while(*(romano + j) != '\0'){
+
+				if(*(romano + j) == 'C'){
+
+					contadorC++;
+					j++;
+				}
+				else{
+
+					break;
+				}
+			}
+		
+			if(contadorC > 3){
+
+				return -1;
+			}
+		}
+
+		if(*(romano + i) == 'X'){		
+			
+			contadorX = 1;
+			j = i + 1;
+
+			while(*(romano + j) != '\0'){
+
+				if(*(romano + j) == 'X'){
+
+					contadorX++;
+					j++;
+				}
+				else{
+
+					break;
+				}
+			}
+
+			if(contadorX > 3){
+
+				return -1;
+			}
+		}
+
+		if(*(romano + i) == 'M'){		
+
+			contadorM = 1;
+			j = i + 1;
+
+			while(*(romano + j) != '\0'){
+
+				if(*(romano + j) == 'M'){
+
+					contadorM++;
+					j++;
+				}
+				else{
+
+					break;
+				}
+			}
+
+			if(contadorM > 3){
+
+				return -1;
+			}
+		}
+
+		i++;
+
+	}
+
+
+printf("parte 3");
+	/** Terceira filtragem: Quando a esquerda de símbolos de maior valor, I,C,X só podem ser usados uma vez **/
+	i = 0;
+
+	while(*(romano+i) != '\0'){				
+
+		if(*(romano + i) == 'I'){		
+
+			contadorI = 1;
+			j = i + 1;
+
+			while(*(romano + j) != '\0'){
+
+				if(*(romano + j) == 'I'){
+
+					contadorI++;
+				}
+				else{
+
+					if(contadorI > 1){
+
+						return -1;
+					}
+				}
+				j++;
+			}
+		}
+
+		if(*(romano + i) == 'C'){		
+
+			contadorD = 1;
+			j = i + 1;
+
+			while(*(romano + j) != '\0'){
+
+				if(*(romano + j) == 'C'){
+
+					contadorD++;
+				}
+				else{
+
+					if(*(romano + j) == 'D' || *(romano + j) == 'M'){
+						
+						if(contadorD > 1){
+
+							return -1;
+						}
+					}
+				}
+				j++;
+			}
+		}
+
+		if(*(romano + i) == 'X'){		
+
+			contadorX = 1;
+			j = i + 1;
+
+			while(*(romano + j) != '\0'){
+
+				if(*(romano + j) == 'X'){
+
+					contadorX++;
+				}
+				else{
+
+					if(*(romano + j) != 'V' && *(romano + j) != 'I'){
+						
+						if(contadorX > 1){
+
+							return -1;
+						}
+					}
+				}
+				j++;
+			}
+		}
+
+		i++;
+	}
+printf("parte 4");
+	/** Quarta filtragem: De M e D só se subtrai C, de C e L só se subtrai X, de X e V só se subtrai I **/
+
+	while(*(romano+i) != '\0'){				
+
+		if(*(romano + i) == 'C'){		
+
+			if(*(romano + (i + 1)) != 'M' && *(romano + (i + 1)) != 'D'){
+
+				return -1;
+			}
+		}
+
+		if(*(romano + i) == 'X'){		
+
+			if(*(romano + (i + 1)) != 'C' && *(romano + (i + 1)) != 'L'){
+
+				return -1;
+			}
+		}
+
+		if(*(romano + i) == 'I'){		
+
+			if(*(romano + (i + 1)) != 'X' && *(romano + (i + 1)) != 'V'){
+
+				return -1;
+			}
+		}
+
+		i++;
+	}
+
+
+	return 1;
 }
 
 int converteRomDec(char *romano){	//Função que recebe a string inserida pelo usuário e converte em decimal
@@ -138,7 +393,7 @@ int converteRomDec(char *romano){	//Função que recebe a string inserida pelo u
 	}
 	else{				//Se não, retorna -1
 
-		valor_dec = -1ç
+		valor_dec = -1;
 	}
 
 
