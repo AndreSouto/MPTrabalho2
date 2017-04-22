@@ -1,8 +1,8 @@
 IDIR =../include 
-CC=g++
-CFLAGS=-I$(IDIR)
+CC=g++ 
+CFLAGS=-I$(IDIR) -ftest-coverage |-fprofile-arcs
 
-ODIR=obj
+ODIR=../obj
 LDIR =../lib
 
 LIBS=-lm
@@ -14,13 +14,13 @@ _OBJ = testes.o romdec.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 
-$(ODIR)/%.o: %.c $(DEPS)
+$(ODIR)/%.o: %.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 testes: $(OBJ)
 	g++ -o $@ $^ $(CFLAGS) $(LIBS)
 
-.PHONY: all testes clean
+.PHONY: clean
 
 clean:
 	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ 

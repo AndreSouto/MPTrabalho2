@@ -65,7 +65,7 @@ TEST_CASE("Testes da funcao converteRomDec():"){	//TEST_CASE que averigua o func
 	valor_decimal = converteRomDec(romano);
 	REQUIRE(valor_decimal == 3000);				//Verifica se o valor convertido corresponde ao valor 3000
 
-}
+}  
  
 TEST_CASE("Testes da funcao validaRom():"){	//TEST_CASE que averigua o funcionamento de converterRomDec()
 

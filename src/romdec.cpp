@@ -3,7 +3,7 @@ Aluno: Andre Luis Souto Ferreira 		140016261
 Metodos de Programacao
 **********************************************************************************************************/
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> 
 
 
 char *recebeString(){ //Função que recebe string do usuário e valida o tamanho da mesma
@@ -41,43 +41,42 @@ int validaRom(char *romano){	//Função que valida o valor romano, se valer reto
 	int contadorV = 0, contadorD = 0, contadorL = 0;			//Contadores para V,D e L
 	int i = 0;										
 
-printf("parte 1");
+
 	/** Primeira filtragem: Valores D,L e V não podem aparecer mais de uma vez **/
 	while(*(romano+i) != '\0'){				
 
 		if(*(romano + i) == 'V'){		
 
-			contadorV++;
+			contadorV++;				//Contador de V
 		}
 
 		if(*(romano + i) == 'L'){		
 
-			contadorD++;
+			contadorD++;				//Contador de D
 		}
 
 		if(*(romano + i) == 'D'){		
 
-			contadorL++;
+			contadorL++;				//Contador de L
 		}
 
 		i++;
 	}
 
-	if(contadorL > 1 || contadorD > 1 || contadorV > 1){
+	if(contadorL > 1 || contadorD > 1 || contadorV > 1){	//Caso V,L ou D apareçam mais que uma vez, retorna -1
 
 		return -1;
 	}
 
 
-printf("parte 2");
 	/** Segunda filtragem: Os valores I,C,X e M não podem aparecer mais do que três vezes seguidas **/
 	i = 0;
 	int j = 0;
-	int contadorI = 0, contadorC = 0, contadorX = 0, contadorM = 0;
+	int contadorI = 0, contadorC = 0, contadorX = 0, contadorM = 0;			//Contador das letras
 
 	while(*(romano+i) != '\0'){				
 
-		if(*(romano + i) == 'I'){		
+		if(*(romano + i) == 'I'){		//Verifica se I aparece mais que três vezes seguidas
 
 			contadorI = 1;
 			j = i + 1;
@@ -95,13 +94,13 @@ printf("parte 2");
 				}
 			}
 
-			if(contadorI > 3){
+			if(contadorI > 3){			//Se aparecer, retorna -1
 
 				return -1;
 			}
 		}
 
-		if(*(romano + i) == 'C'){		
+		if(*(romano + i) == 'C'){		//Verifica se C aparece mais que três vezes seguidas
 
 			contadorC = 1;
 			j = i + 1;
@@ -119,13 +118,13 @@ printf("parte 2");
 				}
 			}
 		
-			if(contadorC > 3){
+			if(contadorC > 3){		 	//Se aparecer, retorna -1
 
 				return -1;
 			}
 		}
 
-		if(*(romano + i) == 'X'){		
+		if(*(romano + i) == 'X'){		//Verifica se X aparece mais que três vezes seguidas
 			
 			contadorX = 1;
 			j = i + 1;
@@ -143,13 +142,13 @@ printf("parte 2");
 				}
 			}
 
-			if(contadorX > 3){
+			if(contadorX > 3){			//Se aparecer, retorna -1
 
 				return -1;
 			}
 		}
 
-		if(*(romano + i) == 'M'){		
+		if(*(romano + i) == 'M'){		//Verifica se M aparece mais que três vezes seguidas
 
 			contadorM = 1;
 			j = i + 1;
@@ -167,7 +166,7 @@ printf("parte 2");
 				}
 			}
 
-			if(contadorM > 3){
+			if(contadorM > 3){			//Se aparecer, retorna -1
 
 				return -1;
 			}
@@ -178,13 +177,12 @@ printf("parte 2");
 	}
 
 
-printf("parte 3");
 	/** Terceira filtragem: Quando a esquerda de símbolos de maior valor, I,C,X só podem ser usados uma vez **/
 	i = 0;
 
 	while(*(romano+i) != '\0'){				
 
-		if(*(romano + i) == 'I'){		
+		if(*(romano + i) == 'I'){		//Verifica se I está a esquerda de um símbolo de maior valor e qtas vezes
 
 			contadorI = 1;
 			j = i + 1;
@@ -206,7 +204,7 @@ printf("parte 3");
 			}
 		}
 
-		if(*(romano + i) == 'C'){		
+		if(*(romano + i) == 'C'){		//Verifica se C está a esquerda de um símbolo de maior valor e qtas vezes
 
 			contadorD = 1;
 			j = i + 1;
@@ -231,7 +229,7 @@ printf("parte 3");
 			}
 		}
 
-		if(*(romano + i) == 'X'){		
+		if(*(romano + i) == 'X'){		//Verifica se X está a esquerda de um símbolo de maior valor e qtas vezes
 
 			contadorX = 1;
 			j = i + 1;
@@ -258,30 +256,63 @@ printf("parte 3");
 
 		i++;
 	}
-printf("parte 4");
+
+
 	/** Quarta filtragem: De M e D só se subtrai C, de C e L só se subtrai X, de X e V só se subtrai I **/
+	i = 0;
 
 	while(*(romano+i) != '\0'){				
 
-		if(*(romano + i) == 'C'){		
+		if(*(romano + i) == 'C'){	//Se for C, vale tudo	
 
-			if(*(romano + (i + 1)) != 'M' && *(romano + (i + 1)) != 'D'){
+			//Qualquer opcao é válida
+		}
+
+		if(*(romano + i) == 'X'){	//Se for X, só pode estar antes de C,L,V e I
+
+			if(*(romano + (i + 1)) == 'D' || *(romano + (i + 1)) == 'M' || *(romano + (i + 1)) == 'C' || 
+			   *(romano + (i + 1)) == 'L' || *(romano + (i + 1)) == '\0'){
+				
+				if(*(romano + (i + 1)) != 'C' && *(romano + (i + 1)) != 'L' && *(romano + (i + 1)) != '\0'){
+					
+					return -1;
+				}
+			}
+		}
+
+		if(*(romano + i) == 'I'){	//Se for I, só pode estar antes de X, de V e de outro I
+
+			if(*(romano + (i + 1)) != 'X' && *(romano + (i + 1)) != 'V' && *(romano + (i + 1)) != '\0' &&
+			   *(romano + (i + 1)) != 'I'){
 
 				return -1;
 			}
 		}
 
-		if(*(romano + i) == 'X'){		
+		if(*(romano + i) == 'V'){	//Se for V, só pode estar antes de I
 
-			if(*(romano + (i + 1)) != 'C' && *(romano + (i + 1)) != 'L'){
+			if(*(romano + (i + 1)) != 'I' && *(romano + (i + 1)) != '\0'){
+
+				return -1;
+			}	
+		}
+
+		if(*(romano + i) == 'M'){	//Se for M, vale tudo
+
+			//Qualquer opcao é válida
+		}
+
+		if(*(romano + i) == 'D'){	//Se for D, só não pode estar antes de M
+
+			if(*(romano + (i + 1)) == 'M'){
 
 				return -1;
 			}
 		}
 
-		if(*(romano + i) == 'I'){		
+		if(*(romano + i) == 'L'){	//Se for L, só não pode estar antes de M,D ou C
 
-			if(*(romano + (i + 1)) != 'X' && *(romano + (i + 1)) != 'V'){
+			if(*(romano + (i + 1)) == 'M' || *(romano + (i + 1)) == 'D' || *(romano + (i + 1)) == 'C'){
 
 				return -1;
 			}
@@ -291,7 +322,7 @@ printf("parte 4");
 	}
 
 
-	return 1;
+	return 1;		//Retorna 1 indicando que está tudo certo com os símbolos e suas ordens na string
 }
 
 int converteRomDec(char *romano){	//Função que recebe a string inserida pelo usuário e converte em decimal
