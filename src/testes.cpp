@@ -1,3 +1,8 @@
+/**********************************************************************************************************
+Aluno: Andre Luis Souto Ferreira 		140016261
+Metodos de Programacao
+**********************************************************************************************************/
+
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 #include "romdec.hpp"
@@ -7,7 +12,7 @@
 TEST_CASE("Testes da funcao recebeString():"){	  //TEST_CASE que averigua o funcionamento de recebeString()
 
 	char *recebida = recebeString();
-	REQUIRE(strcmp(recebida,"testando") == 0);    // String usada para fazer comparação com a recebida do usuário
+	REQUIRE(strcmp(recebida,"CCCLXXX") == 0);    // String usada para fazer comparação com a recebida do usuário
 												  // ATENÇÃO -- VALOR DEVE SER MUDADO DE ACORDO COM A STRING QUE SE
 												  // DESEJA SER INSERIDA
 	recebida = recebeString();
@@ -60,4 +65,26 @@ TEST_CASE("Testes da funcao converteRomDec():"){	//TEST_CASE que averigua o func
 	valor_decimal = converteRomDec(romano);
 	REQUIRE(valor_decimal == 3000);				//Verifica se o valor convertido corresponde ao valor 3000
 
+}
+
+TEST_CASE("Testes da funcao converteRomDec():"){	//TEST_CASE que averigua o funcionamento de converterRomDec()
+
+	char romano[30];
+	int valor_decimal;
+
+	strcpy(romano,"XXXX");
+	valor_decimal = validaRom(romano);
+	REQUIRE(valor_decimal == -1);				//Verifica se valor romano foi dado como falso
+
+	strcpy(romano,"VV");
+	valor_decimal = validaRom(romano);
+	REQUIRE(valor_decimal == -1);				//Verifica se valor romano foi dado como falso
+
+	strcpy(romano,"VX");
+	valor_decimal = validaRom(romano);
+	REQUIRE(valor_decimal == -1);				//Verifica se valor romano foi dado como falso
+
+	strcpy(romano,"LIIII");
+	valor_decimal = validaRom(romano);
+	REQUIRE(valor_decimal == -1);				//Verifica se valor romano foi dado como falso
 }
