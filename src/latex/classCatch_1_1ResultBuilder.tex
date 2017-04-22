@@ -1,0 +1,91 @@
+\hypertarget{classCatch_1_1ResultBuilder}{}\section{Referência da Classe Catch\+:\+:Result\+Builder}
+\label{classCatch_1_1ResultBuilder}\index{Catch\+::\+Result\+Builder@{Catch\+::\+Result\+Builder}}
+
+
+Diagrama de Hierarquia para Catch\+:\+:Result\+Builder\+:
+% FIG 0
+
+
+Diagrama de colaboração para Catch\+:\+:Result\+Builder\+:
+% FIG 1
+\subsection*{Métodos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Result\+Builder} (char const $\ast$macro\+Name, \hyperlink{structCatch_1_1SourceLineInfo}{Source\+Line\+Info} const \&line\+Info, char const $\ast$captured\+Expression, Result\+Disposition\+::\+Flags result\+Disposition, char const $\ast$second\+Arg=\char`\"{}\char`\"{})\hypertarget{classCatch_1_1ResultBuilder_a8579c3056f64f9324cf1181532828376}{}\label{classCatch_1_1ResultBuilder_a8579c3056f64f9324cf1181532828376}
+
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{classCatch_1_1ExpressionLhs}{Expression\+Lhs}$<$ T const \& $>$ {\bfseries operator$<$=} (T const \&operand)\hypertarget{classCatch_1_1ResultBuilder_a1829db87e701758c4c520988883b25b5}{}\label{classCatch_1_1ResultBuilder_a1829db87e701758c4c520988883b25b5}
+
+\item 
+\hyperlink{classCatch_1_1ExpressionLhs}{Expression\+Lhs}$<$ bool $>$ {\bfseries operator$<$=} (bool value)\hypertarget{classCatch_1_1ResultBuilder_a3b87b20bcd1ef9e630880e59eeefba2a}{}\label{classCatch_1_1ResultBuilder_a3b87b20bcd1ef9e630880e59eeefba2a}
+
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{classCatch_1_1ResultBuilder}{Result\+Builder} \& {\bfseries operator$<$$<$} (T const \&value)\hypertarget{classCatch_1_1ResultBuilder_a5aa79ce6160ab8cd800eb65bbd7a28a4}{}\label{classCatch_1_1ResultBuilder_a5aa79ce6160ab8cd800eb65bbd7a28a4}
+
+\item 
+\hyperlink{classCatch_1_1ResultBuilder}{Result\+Builder} \& {\bfseries set\+Result\+Type} (Result\+Was\+::\+Of\+Type result)\hypertarget{classCatch_1_1ResultBuilder_af896e372db9d7fc90ddeceff3ad110d0}{}\label{classCatch_1_1ResultBuilder_af896e372db9d7fc90ddeceff3ad110d0}
+
+\item 
+\hyperlink{classCatch_1_1ResultBuilder}{Result\+Builder} \& {\bfseries set\+Result\+Type} (bool result)\hypertarget{classCatch_1_1ResultBuilder_ae504348b073d0360bfd5fc33347ec689}{}\label{classCatch_1_1ResultBuilder_ae504348b073d0360bfd5fc33347ec689}
+
+\item 
+void {\bfseries end\+Expression} (\hyperlink{structCatch_1_1DecomposedExpression}{Decomposed\+Expression} const \&expr)\hypertarget{classCatch_1_1ResultBuilder_a864e03b7300271de7cc44b9864463c5a}{}\label{classCatch_1_1ResultBuilder_a864e03b7300271de7cc44b9864463c5a}
+
+\item 
+virtual void {\bfseries reconstruct\+Expression} (std\+::string \&dest) const C\+A\+T\+C\+H\+\_\+\+O\+V\+E\+R\+R\+I\+DE\hypertarget{classCatch_1_1ResultBuilder_a7d94b15cf04301a8617e7b16158b5d82}{}\label{classCatch_1_1ResultBuilder_a7d94b15cf04301a8617e7b16158b5d82}
+
+\item 
+\hyperlink{classCatch_1_1AssertionResult}{Assertion\+Result} {\bfseries build} () const \hypertarget{classCatch_1_1ResultBuilder_a31eba48feb02817d2151e31bd8331eeb}{}\label{classCatch_1_1ResultBuilder_a31eba48feb02817d2151e31bd8331eeb}
+
+\item 
+\hyperlink{classCatch_1_1AssertionResult}{Assertion\+Result} {\bfseries build} (\hyperlink{structCatch_1_1DecomposedExpression}{Decomposed\+Expression} const \&expr) const \hypertarget{classCatch_1_1ResultBuilder_a606377d75e78899c90f94816ae8aff61}{}\label{classCatch_1_1ResultBuilder_a606377d75e78899c90f94816ae8aff61}
+
+\item 
+void {\bfseries use\+Active\+Exception} (Result\+Disposition\+::\+Flags result\+Disposition=Result\+Disposition\+::\+Normal)\hypertarget{classCatch_1_1ResultBuilder_a5bbd2f14a678f3e8d0f791ac6d233d65}{}\label{classCatch_1_1ResultBuilder_a5bbd2f14a678f3e8d0f791ac6d233d65}
+
+\item 
+void {\bfseries capture\+Result} (Result\+Was\+::\+Of\+Type result\+Type)\hypertarget{classCatch_1_1ResultBuilder_a10e467f7b7a4976e5d148b4d5066e8fd}{}\label{classCatch_1_1ResultBuilder_a10e467f7b7a4976e5d148b4d5066e8fd}
+
+\item 
+void {\bfseries capture\+Expression} ()\hypertarget{classCatch_1_1ResultBuilder_af2ae2343965802eeeb0abbd4ea9d2d36}{}\label{classCatch_1_1ResultBuilder_af2ae2343965802eeeb0abbd4ea9d2d36}
+
+\item 
+void {\bfseries capture\+Expected\+Exception} (std\+::string const \&expected\+Message)\hypertarget{classCatch_1_1ResultBuilder_a9ac96f6220c8dd8e4feee725c6228d77}{}\label{classCatch_1_1ResultBuilder_a9ac96f6220c8dd8e4feee725c6228d77}
+
+\item 
+void {\bfseries capture\+Expected\+Exception} (\hyperlink{structCatch_1_1Matchers_1_1Impl_1_1MatcherBase}{Matchers\+::\+Impl\+::\+Matcher\+Base}$<$ std\+::string $>$ const \&matcher)\hypertarget{classCatch_1_1ResultBuilder_a2d6a194258f07f212fef098c0201038a}{}\label{classCatch_1_1ResultBuilder_a2d6a194258f07f212fef098c0201038a}
+
+\item 
+void {\bfseries handle\+Result} (\hyperlink{classCatch_1_1AssertionResult}{Assertion\+Result} const \&result)\hypertarget{classCatch_1_1ResultBuilder_ad8bb17e4ac590b75bf8630d8f3502f4e}{}\label{classCatch_1_1ResultBuilder_ad8bb17e4ac590b75bf8630d8f3502f4e}
+
+\item 
+void {\bfseries react} ()\hypertarget{classCatch_1_1ResultBuilder_a3085cdc46533d45bed6f652a2ac295c0}{}\label{classCatch_1_1ResultBuilder_a3085cdc46533d45bed6f652a2ac295c0}
+
+\item 
+bool {\bfseries should\+Debug\+Break} () const \hypertarget{classCatch_1_1ResultBuilder_a34cdbf7ad1e5b3cb4a94047f2d14bcb2}{}\label{classCatch_1_1ResultBuilder_a34cdbf7ad1e5b3cb4a94047f2d14bcb2}
+
+\item 
+bool {\bfseries allow\+Throws} () const \hypertarget{classCatch_1_1ResultBuilder_a3dbf18a3a4b00173dab052a8864e435e}{}\label{classCatch_1_1ResultBuilder_a3dbf18a3a4b00173dab052a8864e435e}
+
+\item 
+{\footnotesize template$<$typename ArgT , typename MatcherT $>$ }\\void {\bfseries capture\+Match} (ArgT const \&arg, MatcherT const \&matcher, char const $\ast$matcher\+String)\hypertarget{classCatch_1_1ResultBuilder_a27425538bec8fee7ac69403c5df6078c}{}\label{classCatch_1_1ResultBuilder_a27425538bec8fee7ac69403c5df6078c}
+
+\item 
+void {\bfseries set\+Exception\+Guard} ()\hypertarget{classCatch_1_1ResultBuilder_a87929808b4ec9b6cb5838edc1f27df17}{}\label{classCatch_1_1ResultBuilder_a87929808b4ec9b6cb5838edc1f27df17}
+
+\item 
+void {\bfseries unset\+Exception\+Guard} ()\hypertarget{classCatch_1_1ResultBuilder_a0990e93c1e13f96ffe02fa0f45e8f155}{}\label{classCatch_1_1ResultBuilder_a0990e93c1e13f96ffe02fa0f45e8f155}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição Detalhada}
+
+
+Definição na linha 1199 do arquivo catch.\+hpp.
+
+
+
+A documentação para esta classe foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+/home/andre/\+Documents/\+Metodos\+Program/\+Trab2/\+M\+P\+Trabalho2/include/catch.\+hpp\end{DoxyCompactItemize}

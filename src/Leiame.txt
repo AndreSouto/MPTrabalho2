@@ -1,0 +1,15 @@
+André Luis Souto Ferreira -- 140016261
+Métodos de Programação
+
+Como executar o programa:
+--Basta ir ao diretório src pelo terminal, e digitar make. Após isso, escrever ./testes e o programa roda.
+
+--ATENÇÃO: O PROGRAMA PEDIRÁ 3 ENTRADAS AO USUÁRIO, ESSAS ENTRADAS DEVEM SER CCCLXXX, X E L RESPECTIVAMENTE. SÃO ENTRADAS PARA FINS DE TESTE, CASO DESEJE-SE TESTAR OUTROS VALORES, DEVE-SE MUDAR NO CÓDIGO TESTES.CPP.
+
+--Para acessar a documentação, basta digitar no terminal firefox html/index.html do diretório src.
+
+--Programa foi feito no SO Ubuntu.
+
+--ATENÇÃO: PARA TER ACESSO AO NÚMERO DE LINHAS EXECUTADAS, IR PARA DIRETÓRIO OBJ DENTRO DE SRC E DIGITAR NO TERMINAL, APÓS COMPILAÇÃO E EXECUÇÃO DE TESTES.CPP, GCOV TESTES.O.
+
+Att André. 

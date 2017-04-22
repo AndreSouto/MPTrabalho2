@@ -3,8 +3,8 @@ Aluno: Andre Luis Souto Ferreira 		140016261
 Metodos de Programacao
 **********************************************************************************************************/
 
-#define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+#define CATCH_CONFIG_MAIN   
+#include "catch.hpp" 
 #include "romdec.hpp"
 #include <string.h>
 
@@ -88,4 +88,4 @@ TEST_CASE("Testes da funcao validaRom():"){	//TEST_CASE que averigua o funcionam
 	valor_decimal = validaRom(romano);
 	REQUIRE(valor_decimal == -1);				//Verifica se valor romano foi dado como falso
 
-}
+} 

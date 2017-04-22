@@ -3,36 +3,26 @@ Aluno: Andre Luis Souto Ferreira 		140016261
 Metodos de Programacao
 **********************************************************************************************************/
 #include <stdio.h>
-#include <stdlib.h> 
+#include <stdlib.h>    
 
 
 char *recebeString(){ //Função que recebe string do usuário e valida o tamanho da mesma
 
-	char *string_retornada = (char*)malloc(sizeof(char));	//Alocando dinamicamente a string para a mesma 
-															//não ser perdida após retorno da função
+	char *string_retornada = (char*)malloc(30*sizeof(char));	//Alocando dinamicamente a string para a mesma 
+																//não ser perdida após retorno da função
 	printf("Insira um valor em numeros romanos\n");
-	scanf("%s",string_retornada);
-
-	int contador = 0;
-	while(*(string_retornada + contador) != '\0'){			//Contagem de caracteres na string
-			
-		contador++; 
+	fgets(string_retornada,30,stdin);					//fgets usado para conter warning dado pelo cppcheck
+														//inicialmente havia sido usado scanf()
+	
+	int i = 0;
+	while(*(string_retornada + i) != '\n'){
+		i++;
 	}
 
-	while(contador >= 29){									//Verificação se a string tem tamanho válido
-															//Caso não tenha, usuário deve inserir outra
-		printf("Tamanho maior que 30.\n");
-		printf("Insira um valor em numeros romanos\n");
-		scanf("%s",string_retornada);
 
-		int contador = 0;
-		while(*(string_retornada + contador) != '\0'){
-			
-			contador++;
-		}
-	}
+	*(string_retornada + i) = '\0';		//Troca '\n' por '\0' para não ter erro de comparação
 
-	return string_retornada;
+	return string_retornada;			//Retorno da string
 }
 
 
